@@ -4,11 +4,13 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 
 SRC_URI_append = " \
 	file://telenor.nmconnection \
+	file://tele2.nmconnection \
 "
 
 do_install_append () {
 	install -d ${D}${sysconfdir}/NetworkManager/system-connections
 	install -m 0600 ${WORKDIR}/telenor.nmconnection ${D}${sysconfdir}/NetworkManager/system-connections
+	install -m 0600 ${WORKDIR}/tele2.nmconnection ${D}${sysconfdir}/NetworkManager/system-connections
 }
 
 FILES_${PN} += "${sysconfdir}/NetworkManager/system-connections"
